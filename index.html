@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olaide Afolayan — Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        violet: { DEFAULT: '#6f42c1', dark: '#5a32a3', light: '#8c63d4', faint: '#f0ebfa' },
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --violet: #6f42c1;
+            --violet-dark: #5a32a3;
+            --violet-light: #8c63d4;
+            --violet-faint: #f0ebfa;
+            --ink: #1a1025;
+            --muted: #6b5f7a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #faf9fc;
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* ── Noise overlay ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* ── Nav ── */
+        nav {
+            backdrop-filter: blur(14px);
+            background: rgba(250, 249, 252, 0.85);
+        }
+
+        .nav-link {
+            position: relative;
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--violet);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--violet);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ── Hero ── */
+        .hero-bg {
+            background: radial-gradient(ellipse 80% 60% at 60% 40%, #d4c2f5 0%, #f0ebfa 50%, #faf9fc 100%);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            border: 1.5px solid var(--violet);
+            color: var(--violet);
+            font-family: 'Syne', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+        }
+
+        .hero-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .typed-cursor {
+            animation: blink 0.9s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+            }
+        }
+
+        /* ── Blob ── */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        /* ── Section headings ── */
+        .section-eyebrow {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--violet);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        /* ── Skill pills ── */
+        .skill-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            border: 1.5px solid #e5daf7;
+            background: white;
+            color: var(--ink);
+            transition: all 0.2s;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--violet);
+            color: var(--violet);
+            background: var(--violet-faint);
+            transform: translateY(-2px);
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: white;
+            border: 1px solid #ede8f7;
+            border-radius: 18px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(111, 66, 193, 0.12);
+        }
+
+        /* ── Blog card ── */
+        .blog-tag {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--violet);
+            background: var(--violet-faint);
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        /* ── Timeline ── */
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--violet), #d4c2f5);
+        }
+
+        /* ── Contact ── */
+        .contact-input {
+            width: 100%;
+            border: 1.5px solid #e5daf7;
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            background: white;
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .contact-input:focus {
+            border-color: var(--violet);
+        }
+
+        .contact-input::placeholder {
+            color: #b0a3c0;
+        }
+
+        /* ── CTA Button ── */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--violet);
+            color: white;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--violet-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(111, 66, 193, 0.35);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid var(--violet);
+            color: var(--violet);
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            padding: 0.8rem 2rem;
+            border-radius: 100px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--violet);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ── Stat ── */
+        .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--violet);
+            line-height: 1;
+        }
+
+        /* ── Fade-in animations ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Mobile menu ── */
+        #mobile-menu {
+            display: none;
+        }
+
+        #mobile-menu.open {
+            display: flex;
+        }
+
+        /* ── Footer ── */
+        .footer-link {
+            color: var(--muted);
+            transition: color 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .footer-link:hover {
+            color: var(--violet);
+        }
+
+        /* ── Decorative code block in hero ── */
+        .code-float {
+            font-family: 'DM Mono', 'Fira Code', monospace;
+            font-size: 0.78rem;
+            line-height: 1.7;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e5daf7;
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(111, 66, 193, 0.1);
+        }
+
+        .code-kw {
+            color: var(--violet);
+            font-weight: 600;
+        }
+
+        .code-str {
+            color: #c8a2f5;
+        }
+
+        .code-fn {
+            color: #22c55e;
+        }
+
+        .code-comment {
+            color: #b0a3c0;
+        }
+
+        /* ── Social icon ── */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1.5px solid #e5daf7;
+            color: var(--muted);
+            transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+            border-color: var(--violet);
+            color: var(--violet);
+            background: var(--violet-faint);
+            transform: translateY(-2px);
+        }
+
+        /* Progress bar */
+        .skill-bar-track {
+            width: 100%;
+            height: 4px;
+            background: #ede8f7;
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--violet), var(--violet-light));
+            border-radius: 100px;
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════ NAV ═══════════════════════════════════════════ -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-purple-100">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="font-display font-800 text-xl"
+                style="font-family:'Syne',sans-serif; font-weight:800; color:var(--ink);">
+                OA<span style="color:var(--violet)">.</span>
+            </a>
+
+            <!-- Desktop nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-3">
+                <div class="availability-dot"></div>
+                <span style="font-size:0.78rem; color:var(--muted); font-weight:500;">Open to work</span>
+                <a href="mailto:alaka1olaide@gmail.com" class="btn-primary"
+                    style="padding:0.55rem 1.2rem; font-size:0.78rem;">Hire Me</a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()">
+                <span class="block w-5 h-0.5 bg-gray-600 transition-all" id="bar1"></span>
+                <span class="block w-5 h-0.5 bg-gray-600 transition-all" id="bar2"></span>
+                <span class="block w-5 h-0.5 bg-gray-600 transition-all" id="bar3"></span>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="flex-col gap-1 px-5 pb-4 md:hidden border-t border-purple-100 bg-white/95">
+            <a href="#about" onclick="closeMenu()" class="block py-3 nav-link">About</a>
+            <a href="#skills" onclick="closeMenu()" class="block py-3 nav-link">Skills</a>
+            <a href="#blog" onclick="closeMenu()" class="block py-3 nav-link">Blog</a>
+            <a href="#contact" onclick="closeMenu()" class="block py-3 nav-link">Contact</a>
+            <a href="mailto:alaka1olaide@gmail.com" class="btn-primary mt-2 w-full justify-center">Hire Me</a>
+        </div>
+    </nav>
+
+
+    <!-- ═══════════════════════════════════════════ HERO ═══════════════════════════════════════════ -->
+    <section id="hero" class="hero-bg relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+        <!-- Blobs -->
+        <div class="blob" style="width:500px;height:500px;background:#b491f0;top:-100px;right:-100px;"></div>
+        <div class="blob" style="width:300px;height:300px;background:#6f42c1;bottom:50px;left:-80px;"></div>
+
+        <div class="max-w-6xl mx-auto px-5 w-full grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left -->
+            <div>
+                <span class="hero-tag mb-5 inline-block">Software Engineer</span>
+                <h1 class="hero-name text-5xl sm:text-6xl lg:text-7xl mb-6" style="color:var(--ink);">
+                    Hi, I'm<br>
+                    <span style="color:var(--violet);">Olaide</span><span class="typed-cursor"
+                        style="color:var(--violet);">|</span>
+                </h1>
+                <p class="text-lg mb-8 max-w-lg" style="color:var(--muted); line-height:1.75;">
+                    A hands-on software engineer who loves building systems that are <strong
+                        style="color:var(--ink); font-weight:500;">intuitive, scalable, and maintainable</strong>.
+                    Specializing in Python & Django, comfortable across the full stack.
+                </p>
+                <div class="flex flex-wrap gap-3 mb-8">
+                    <a href="#contact" class="btn-primary">Let's Talk <svg width="16" height="16" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg></a>
+                    <a href="#about" class="btn-outline">Learn More</a>
+                </div>
+                <!-- Social -->
+                <div class="flex items-center gap-3">
+                    <a href="https://github.com/toweralaka" target="_blank" class="social-btn" title="GitHub">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/olaide-alaka-afolayan-7a659257/" target="_blank"
+                        class="social-btn" title="LinkedIn">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com/@itsdeardev" target="_blank" class="social-btn" title="YouTube">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:alaka1olaide@gmail.com" class="social-btn" title="Email">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: floating code card -->
+            <div class="hidden lg:flex justify-center items-center relative">
+                <div class="code-float w-full max-w-md fade-up visible" style="transition-delay:0.3s;">
+                    <div class="flex gap-1.5 mb-4">
+                        <span class="w-3 h-3 rounded-full" style="background:#ff5f57"></span>
+                        <span class="w-3 h-3 rounded-full" style="background:#ffbd2e"></span>
+                        <span class="w-3 h-3 rounded-full" style="background:#28c941"></span>
+                    </div>
+                    <pre style="margin:0; white-space:pre-wrap;"><code><span class="code-comment"># olaide.py</span>
+<span class="code-kw">class</span> <span class="code-fn">SoftwareEngineer</span>:
+    name = <span class="code-str">"Olaide Alaka"</span>
+    role = <span class="code-str">"Backend Engineer"</span>
+
+    stack = [
+        <span class="code-str">"Python"</span>, <span class="code-str">"Django"</span>,
+        <span class="code-str">"React"</span>, <span class="code-str">"Docker"</span>,
+        <span class="code-str">"AWS"</span>, <span class="code-str">"PostgreSQL"</span>
+    ]
+
+    <span class="code-kw">def</span> <span class="code-fn">solve</span>(self, problem):
+        <span class="code-kw">return</span> <span class="code-str">f"Clean, scalable solution ✓"</span>
+
+    <span class="code-kw">def</span> <span class="code-fn">collaborate</span>(self, team):
+        <span class="code-kw">return</span> <span class="code-str">"Always 🤝"</span></code></pre>
+                </div>
+                <!-- Floating badges -->
+                <div class="absolute -top-4 -right-4 bg-white border border-purple-100 rounded-2xl px-4 py-3 shadow-lg"
+                    style="animation: float1 3s ease-in-out infinite;">
+                    <div class="text-xs font-bold" style="font-family:'Syne',sans-serif; color:var(--violet);">AWS</div>
+                    <div class="text-xs" style="color:var(--muted);">Lambda · S3 · EC2</div>
+                </div>
+                <div class="absolute -bottom-4 -left-4 bg-white border border-purple-100 rounded-2xl px-4 py-3 shadow-lg"
+                    style="animation: float2 3.5s ease-in-out infinite;">
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <div class="availability-dot"></div>
+                        <span class="text-xs font-bold" style="font-family:'Syne',sans-serif; color:#22c55e;">Available
+                            Now</span>
+                    </div>
+                    <div class="text-xs mt-0.5" style="color:var(--muted);">Open to full-time roles</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            style="animation: bounce 2s infinite;">
+            <span class="text-xs"
+                style="color:var(--muted); font-family:'Syne',sans-serif; letter-spacing:0.1em; text-transform:uppercase;">Scroll</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                style="color:var(--violet);">
+                <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+        </div>
+    </section>
+
+    <style>
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-8px)
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(8px)
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0)
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(6px)
+            }
+        }
+    </style>
+
+
+    <!-- ═══════════════════════════════════════════ STATS ════════════════════════════════════════════ -->
+    <section class="py-12 bg-white border-y border-purple-50">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-up">
+                    <div class="stat-num">5+</div>
+                    <div class="text-sm mt-1" style="color:var(--muted);">Years Experience</div>
+                </div>
+                <div class="fade-up" style="transition-delay:0.1s">
+                    <div class="stat-num">15+</div>
+                    <div class="text-sm mt-1" style="color:var(--muted);">Technologies</div>
+                </div>
+                <div class="fade-up" style="transition-delay:0.2s">
+                    <div class="stat-num">∞</div>
+                    <div class="text-sm mt-1" style="color:var(--muted);">Problems Solved</div>
+                </div>
+                <div class="fade-up" style="transition-delay:0.3s">
+                    <div class="stat-num">🇫🇷</div>
+                    <div class="text-sm mt-1" style="color:var(--muted);">Learning French</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ ABOUT ════════════════════════════════════════════ -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left visual -->
+                <div class="relative fade-up">
+                    <div class="rounded-3xl overflow-hidden"
+                        style="background: linear-gradient(135deg, #d4c2f5 0%, #6f42c1 100%); aspect-ratio:4/5; display:flex; align-items:center; justify-content:center;">
+                        <div style="font-size:7rem;">👨‍💻</div>
+                    </div>
+                    <!-- Floating card -->
+                    <div class="absolute -right-6 -bottom-6 card p-5 w-56">
+                        <div class="text-xs mb-1"
+                            style="color:var(--muted); font-family:'Syne',sans-serif; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">
+                            Currently</div>
+                        <div class="font-bold text-sm" style="color:var(--ink);">Learning Node.js &</div>
+                        <div class="font-bold text-sm" style="color:var(--ink);">DevOps automation</div>
+                        <div class="mt-2 flex items-center gap-1.5">
+                            <div class="availability-dot"></div>
+                            <span class="text-xs" style="color:#22c55e; font-weight:600;">Active learner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right content -->
+                <div class="fade-up" style="transition-delay:0.15s">
+                    <p class="section-eyebrow mb-3">About Me</p>
+                    <h2 class="section-title text-4xl md:text-5xl mb-6" style="color:var(--ink);">Building with
+                        intention,<br><span style="color:var(--violet);">one line at a time.</span></h2>
+                    <div class="space-y-4 mb-8" style="color:var(--muted); line-height:1.8;">
+                        <p>I'm a hands-on software engineer with a love for building systems that are intuitive,
+                            scalable, and maintainable. While I specialize in <strong style="color:var(--ink);">Python,
+                                Django, and backend engineering</strong>, I work comfortably across the stack — from
+                            frontend interfaces to cloud deployment pipelines.</p>
+                        <p>What drives me is using tech to solve problems and improve lives. I've worked in <strong
+                                style="color:var(--ink);">collaborative teams</strong>, contributed to cross-functional
+                            projects, and led efforts that required both architectural planning and low-level debugging.
+                        </p>
+                        <p>Beyond coding, I love sharing knowledge — mentoring beginners or collaborating with peers —
+                            because I believe learning is better when shared. <em>Bonjour! J'apprend sur Duolingo tous
+                                les jours 😄</em></p>
+                    </div>
+
+                    <!-- Values grid -->
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                        <div class="flex items-start gap-3 p-3 rounded-xl" style="background:var(--violet-faint);">
+                            <span class="text-xl">🧠</span>
+                            <div>
+                                <div class="font-bold text-sm" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                                    Build to Understand</div>
+                                <div class="text-xs mt-0.5" style="color:var(--muted);">Dig deep under the hood</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl" style="background:var(--violet-faint);">
+                            <span class="text-xl">💬</span>
+                            <div>
+                                <div class="font-bold text-sm" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                                    Communicate Clearly</div>
+                                <div class="text-xs mt-0.5" style="color:var(--muted);">Docs, updates, mentoring</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl" style="background:var(--violet-faint);">
+                            <span class="text-xl">🧰</span>
+                            <div>
+                                <div class="font-bold text-sm" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                                    Clean Code</div>
+                                <div class="text-xs mt-0.5" style="color:var(--muted);">Readable & maintainable</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl" style="background:var(--violet-faint);">
+                            <span class="text-xl">🌱</span>
+                            <div>
+                                <div class="font-bold text-sm" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                                    Always Learning</div>
+                                <div class="text-xs mt-0.5" style="color:var(--muted);">Share what you discover</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="mailto:alaka1olaide@gmail.com" class="btn-primary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ SKILLS ════════════════════════════════════════════ -->
+    <section id="skills" class="py-24" style="background: linear-gradient(180deg, #faf9fc 0%, #f0ebfa 100%);">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="text-center mb-16 fade-up">
+                <p class="section-eyebrow mb-3">My Toolbox</p>
+                <h2 class="section-title text-4xl md:text-5xl" style="color:var(--ink);">Technologies I ship with</h2>
+            </div>
+
+            <!-- Category cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+
+                <!-- Backend -->
+                <div class="card p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">🐍</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Backend</div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Django</span>
+                        <span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">Rust</span>
+                        <span class="skill-pill">REST APIs</span>
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>Python/Django</span><span>95%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>FastAPI</span><span>80%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="card p-6 fade-up" style="transition-delay:0.05s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">🌐</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Frontend</div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">React</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">HTML5</span>
+                        <span class="skill-pill">CSS3</span>
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>React</span><span>78%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>JavaScript</span><span>82%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="card p-6 fade-up" style="transition-delay:0.1s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">💾</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Databases</div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">MySQL</span>
+                        <span class="skill-pill">DynamoDB</span>
+                        <span class="skill-pill">MongoDB</span>
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>PostgreSQL/MySQL</span><span>90%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>DynamoDB</span><span>75%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud -->
+                <div class="card p-6 fade-up" style="transition-delay:0.15s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">☁️</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Cloud & Hosting
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">AWS Lambda</span>
+                        <span class="skill-pill">S3</span>
+                        <span class="skill-pill">EC2</span>
+                        <span class="skill-pill">Nginx</span>
+                        <span class="skill-pill">Apache</span>
+                        <span class="skill-pill">SES</span>
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>AWS</span><span>85%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps -->
+                <div class="card p-6 fade-up" style="transition-delay:0.2s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">⚙️</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">DevOps</div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Docker</span>
+                        <span class="skill-pill">Kubernetes</span>
+                        <span class="skill-pill">GitHub Actions</span>
+                        <span class="skill-pill">CI/CD</span>
+                        <span class="skill-pill">Shell</span>
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>Docker/K8s</span><span>80%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing & Data -->
+                <div class="card p-6 fade-up" style="transition-delay:0.25s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">🧪</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Testing & Data
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Pytest</span>
+                        <span class="skill-pill">Selenium</span>
+                        <span class="skill-pill">Playwright</span>
+                        <span class="skill-pill">Pandas</span>
+                        <span class="skill-pill">NumPy</span>
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
+                                <span>Testing</span><span>88%</span></div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collaboration highlights -->
+            <div class="fade-up">
+                <p class="section-eyebrow mb-3 text-center">Collaboration</p>
+                <h3 class="section-title text-2xl text-center mb-10" style="color:var(--ink);">How I work with teams
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-4 p-5 rounded-2xl"
+                        style="background:white; border:1px solid #ede8f7;">
+                        <span class="text-2xl mt-0.5">🤝</span>
+                        <div>
+                            <div class="font-bold mb-1" style="font-family:'Syne',sans-serif; color:var(--ink);">Agile
+                                Team Player</div>
+                            <div class="text-sm" style="color:var(--muted);">Deliver features across sprints, write user
+                                stories, and participate actively in code reviews.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 rounded-2xl"
+                        style="background:white; border:1px solid #ede8f7;">
+                        <span class="text-2xl mt-0.5">🔌</span>
+                        <div>
+                            <div class="font-bold mb-1" style="font-family:'Syne',sans-serif; color:var(--ink);">API
+                                Integration Expert</div>
+                            <div class="text-sm" style="color:var(--muted);">Build and maintain RESTful APIs with
+                                seamless frontend collaboration.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 rounded-2xl"
+                        style="background:white; border:1px solid #ede8f7;">
+                        <span class="text-2xl mt-0.5">🚀</span>
+                        <div>
+                            <div class="font-bold mb-1" style="font-family:'Syne',sans-serif; color:var(--ink);">DevOps
+                                Champion</div>
+                            <div class="text-sm" style="color:var(--muted);">Set up CI/CD pipelines and DevOps tooling
+                                to improve deployment reliability.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 rounded-2xl"
+                        style="background:white; border:1px solid #ede8f7;">
+                        <span class="text-2xl mt-0.5">🎓</span>
+                        <div>
+                            <div class="font-bold mb-1" style="font-family:'Syne',sans-serif; color:var(--ink);">Mentor
+                                & Teacher</div>
+                            <div class="text-sm" style="color:var(--muted);">Mentor junior devs, create documentation
+                                and walkthroughs to support onboarding.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ BLOG ════════════════════════════════════════════ -->
+    <section id="blog" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="fade-up">
+                    <p class="section-eyebrow mb-3">Blog</p>
+                    <h2 class="section-title text-4xl md:text-5xl" style="color:var(--ink);">Thoughts & learnings</h2>
+                </div>
+                <a href="https://youtube.com/@itsdeardev" target="_blank"
+                    class="btn-outline fade-up self-start md:self-auto">Watch on YouTube →</a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Post 1 -->
+                <article class="card p-6 fade-up flex flex-col">
+                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
+                        style="background:linear-gradient(135deg,#d4c2f5,#6f42c1); height:160px;">🐍</div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">Python</span>
+                        <span class="text-xs" style="color:var(--muted);">5 min read</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                        Django REST Framework: Best Practices for Scalable APIs</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">How I structure DRF projects for long-term
+                        maintainability — serializers, viewsets, permissions, and performance tips from real production
+                        work.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs" style="color:var(--muted);">Jan 2025</span>
+                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
+                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.1s">
+                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
+                        style="background:linear-gradient(135deg,#c2f0d4,#22c55e); height:160px;">🐳</div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">Docker</span>
+                        <span class="text-xs" style="color:var(--muted);">7 min read</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                        Dockerizing Django: From Dev to Production in 30 Minutes</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">A practical walkthrough of containerizing a
+                        Django app with Docker Compose, including Nginx, Gunicorn, and PostgreSQL.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs" style="color:var(--muted);">Feb 2025</span>
+                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
+                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.2s">
+                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
+                        style="background:linear-gradient(135deg,#f5d4c2,#f59e0b); height:160px;">☁️</div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">AWS</span>
+                        <span class="text-xs" style="color:var(--muted);">8 min read</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                        Serverless with AWS Lambda + API Gateway + DynamoDB</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">Build and deploy a serverless CRUD API on AWS
+                        without managing servers — with Python, Lambda, and DynamoDB.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs" style="color:var(--muted);">Mar 2025</span>
+                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
+                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.05s">
+                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
+                        style="background:linear-gradient(135deg,#c2d4f5,#3b82f6); height:160px;">⚛️</div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">React</span>
+                        <span class="text-xs" style="color:var(--muted);">6 min read</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                        Connecting React to a Django Backend: The Right Way</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">CORS setup, JWT auth, Axios interceptors, and
+                        state management patterns for a Django + React stack.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs" style="color:var(--muted);">Apr 2025</span>
+                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
+                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.15s">
+                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
+                        style="background:linear-gradient(135deg,#f5c2e7,#ec4899); height:160px;">🧪</div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">Testing</span>
+                        <span class="text-xs" style="color:var(--muted);">5 min read</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                        Writing Tests That Actually Matter with Pytest & Django</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">Move beyond just coverage — write tests that
+                        catch real bugs, document behaviour, and don't slow you down.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs" style="color:var(--muted);">Apr 2025</span>
+                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
+                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
+                    </div>
+                </article>
+
+                <!-- Post 6: CTA card -->
+                <div class="card p-6 fade-up flex flex-col items-center justify-center text-center"
+                    style="background:linear-gradient(135deg,#6f42c1,#8c63d4); border:none; transition-delay:0.25s;">
+                    <div class="text-5xl mb-4">🎬</div>
+                    <h3 class="font-bold text-xl mb-3" style="font-family:'Syne',sans-serif; color:white;">Watch
+                        tutorials on YouTube</h3>
+                    <p class="text-sm mb-6" style="color:rgba(255,255,255,0.75);">I share coding walkthroughs, career
+                        tips, and tech tutorials for developers.</p>
+                    <a href="https://youtube.com/@itsdeardev" target="_blank"
+                        class="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm"
+                        style="background:white; color:var(--violet); font-family:'Syne',sans-serif;">Subscribe →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ CONTACT ════════════════════════════════════════════ -->
+    <section id="contact" class="py-24" style="background: linear-gradient(180deg, #f0ebfa 0%, #faf9fc 100%);">
+        <div class="max-w-5xl mx-auto px-5">
+            <div class="text-center mb-16 fade-up">
+                <p class="section-eyebrow mb-3">Contact</p>
+                <h2 class="section-title text-4xl md:text-5xl" style="color:var(--ink);">Let's build something<br><span
+                        style="color:var(--violet);">meaningful together.</span></h2>
+                <p class="mt-4 text-lg" style="color:var(--muted);">Whether it's a job opportunity, collaboration, or
+                    just a chat — I'm always open.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact info -->
+                <div class="fade-up">
+                    <div class="space-y-5 mb-8">
+                        <a href="mailto:alaka1olaide@gmail.com"
+                            class="flex items-center gap-4 p-5 card hover:no-underline group">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center"
+                                style="background:var(--violet-faint);">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" style="color:var(--violet);">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold mb-0.5"
+                                    style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">
+                                    Email</div>
+                                <div class="font-medium" style="color:var(--ink);">alaka1olaide@gmail.com</div>
+                            </div>
+                            <svg class="ml-auto" width="16" height="16" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24"
+                                style="color:var(--violet); opacity:0; transition:opacity 0.2s;"
+                                class="group-hover:opacity-100">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/olaide-alaka-afolayan-7a659257/" target="_blank"
+                            class="flex items-center gap-4 p-5 card hover:no-underline">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center"
+                                style="background:var(--violet-faint);">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"
+                                    style="color:var(--violet);">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold mb-0.5"
+                                    style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">
+                                    LinkedIn</div>
+                                <div class="font-medium" style="color:var(--ink);">Olaide Alaka Afolayan</div>
+                            </div>
+                        </a>
+
+                        <a href="https://youtube.com/@itsdeardev" target="_blank"
+                            class="flex items-center gap-4 p-5 card hover:no-underline">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center"
+                                style="background:var(--violet-faint);">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"
+                                    style="color:var(--violet);">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold mb-0.5"
+                                    style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">
+                                    YouTube</div>
+                                <div class="font-medium" style="color:var(--ink);">@itsdeardev</div>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/toweralaka" target="_blank"
+                            class="flex items-center gap-4 p-5 card hover:no-underline">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center"
+                                style="background:var(--violet-faint);">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"
+                                    style="color:var(--violet);">
+                                    <path
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold mb-0.5"
+                                    style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">
+                                    GitHub</div>
+                                <div class="font-medium" style="color:var(--ink);">github.com/toweralaka</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact form -->
+                <div class="fade-up" style="transition-delay:0.15s">
+                    <div class="card p-8">
+                        <h3 class="font-bold text-xl mb-6" style="font-family:'Syne',sans-serif; color:var(--ink);">Send
+                            a message</h3>
+                        <div id="contact-form" class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold mb-1.5"
+                                        style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">Name</label>
+                                    <input type="text" id="f-name" class="contact-input" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold mb-1.5"
+                                        style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">Email</label>
+                                    <input type="email" id="f-email" class="contact-input"
+                                        placeholder="you@example.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold mb-1.5"
+                                    style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">Subject</label>
+                                <input type="text" id="f-subject" class="contact-input"
+                                    placeholder="Job opportunity, collab...">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold mb-1.5"
+                                    style="font-family:'Syne',sans-serif; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;">Message</label>
+                                <textarea id="f-message" class="contact-input" rows="5"
+                                    placeholder="Tell me about your project or opportunity..."></textarea>
+                            </div>
+                            <button onclick="sendEmail()" class="btn-primary w-full justify-center">
+                                Send Message
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                            </button>
+                            <div id="form-success" class="hidden text-center py-3 rounded-xl text-sm font-bold"
+                                style="background:#d1fae5; color:#059669;">
+                                ✓ Message sent! I'll get back to you soon.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ FOOTER ════════════════════════════════════════════ -->
+    <footer class="py-10 border-t border-purple-100" style="background:var(--ink);">
+        <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="font-display font-800 text-2xl"
+                style="font-family:'Syne',sans-serif; font-weight:800; color:white;">
+                OA<span style="color:var(--violet-light);">.</span>
+            </div>
+            <div class="text-sm" style="color:rgba(255,255,255,0.4);">© 2025 Olaide Alaka. Built with 💜 and Python in
+                spirit.</div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/toweralaka" target="_blank" class="footer-link"
+                    style="color:rgba(255,255,255,0.5);">GitHub</a>
+                <a href="https://www.linkedin.com/in/olaide-alaka-afolayan-7a659257/" target="_blank"
+                    class="footer-link" style="color:rgba(255,255,255,0.5);">LinkedIn</a>
+                <a href="https://youtube.com/@itsdeardev" target="_blank" class="footer-link"
+                    style="color:rgba(255,255,255,0.5);">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // ── Mobile menu ──
+        function toggleMenu() {
+            const m = document.getElementById('mobile-menu');
+            m.classList.toggle('open');
+        }
+        function closeMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+        }
+
+        // ── Scroll animations ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    // Trigger skill bars
+                    e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                        bar.style.width = bar.dataset.width + '%';
+                    });
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Also observe skill bars on cards that are already visible
+        document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            const card = bar.closest('.fade-up');
+            if (!card) bar.style.width = bar.dataset.width + '%';
+        });
+
+        // ── Contact form ──
+        function sendEmail() {
+            const name = document.getElementById('f-name').value.trim();
+            const email = document.getElementById('f-email').value.trim();
+            const subject = document.getElementById('f-subject').value.trim();
+            const message = document.getElementById('f-message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in your name, email, and message.');
+                return;
+            }
+
+            const body = encodeURIComponent(`Hi Olaide,\n\nMy name is ${name} (${email}).\n\n${message}`);
+            const sub = encodeURIComponent(subject || 'Portfolio Enquiry');
+            window.location.href = `mailto:alaka1olaide@gmail.com?subject=${sub}&body=${body}`;
+
+            document.getElementById('form-success').classList.remove('hidden');
+            setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 5000);
+        }
+
+        // ── Typed effect ──
+        const hero = document.querySelector('.hero-name');
+        // Just animate the cursor — the name is already there.
+
+        // ── Active nav link on scroll ──
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 120) current = s.id;
+            });
+            navLinks.forEach(l => {
+                l.style.color = l.getAttribute('href') === '#' + current ? 'var(--violet)' : '';
+            });
+        });
+    </script>
+</body>
+
+</html>
