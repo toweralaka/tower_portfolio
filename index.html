@@ -435,6 +435,7 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#blog" class="nav-link">Blog</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -458,6 +459,7 @@
         <div id="mobile-menu" class="flex-col gap-1 px-5 pb-4 md:hidden border-t border-purple-100 bg-white/95">
             <a href="#about" onclick="closeMenu()" class="block py-3 nav-link">About</a>
             <a href="#skills" onclick="closeMenu()" class="block py-3 nav-link">Skills</a>
+            <a href="#projects" onclick="closeMenu()" class="block py-3 nav-link">Projects</a>
             <a href="#blog" onclick="closeMenu()" class="block py-3 nav-link">Blog</a>
             <a href="#contact" onclick="closeMenu()" class="block py-3 nav-link">Contact</a>
             <a href="mailto:alaka1olaide@gmail.com" class="btn-primary mt-2 w-full justify-center">Hire Me</a>
@@ -474,23 +476,25 @@
         <div class="max-w-6xl mx-auto px-5 w-full grid lg:grid-cols-2 gap-12 items-center">
             <!-- Left -->
             <div>
-                <span class="hero-tag mb-5 inline-block">Software Engineer</span>
+                <span class="hero-tag mb-5 inline-block">Software Engineer &amp; Writer</span>
                 <h1 class="hero-name text-5xl sm:text-6xl lg:text-7xl mb-6" style="color:var(--ink);">
-                    Hi, I'm<br>
+                    Hi, I am<br>
                     <span style="color:var(--violet);">Olaide</span><span class="typed-cursor"
                         style="color:var(--violet);">|</span>
                 </h1>
                 <p class="text-lg mb-8 max-w-lg" style="color:var(--muted); line-height:1.75;">
-                    A hands-on software engineer who loves building systems that are <strong
-                        style="color:var(--ink); font-weight:500;">intuitive, scalable, and maintainable</strong>.
-                    Specializing in Python & Django, comfortable across the full stack.
+                    A hands-on software engineer and <strong style="color:var(--ink); font-weight:500;">technical writer</strong>
+                    who builds systems that are <strong style="color:var(--ink); font-weight:500;">intuitive, scalable, and maintainable</strong>,
+                    then writes the guides that make them easy for anyone to use. Specializing in Python & Django, comfortable across the full stack,
+                    and always writing: beginner-friendly tutorials, technical docs and everyday pieces.
                 </p>
                 <div class="flex flex-wrap gap-3 mb-8">
-                    <a href="#contact" class="btn-primary">Let's Talk <svg width="16" height="16" fill="none"
+                    <a href="#contact" class="btn-primary">Let us Talk <svg width="16" height="16" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg></a>
                     <a href="#about" class="btn-outline">Learn More</a>
+                    <a href="#blog" class="btn-outline">Read My Writing ✍️</a>
                 </div>
                 <!-- Social -->
                 <div class="flex items-center gap-3">
@@ -534,13 +538,15 @@
                     <pre style="margin:0; white-space:pre-wrap;"><code><span class="code-comment"># olaide.py</span>
 <span class="code-kw">class</span> <span class="code-fn">SoftwareEngineer</span>:
     name = <span class="code-str">"Olaide Alaka"</span>
-    role = <span class="code-str">"Backend Engineer"</span>
+    role = <span class="code-str">"Backend Engineer &amp; Writer"</span>
 
     stack = [
         <span class="code-str">"Python"</span>, <span class="code-str">"Django"</span>,
         <span class="code-str">"React"</span>, <span class="code-str">"Docker"</span>,
         <span class="code-str">"AWS"</span>, <span class="code-str">"PostgreSQL"</span>
     ]
+    writes = [<span class="code-str">"Tech docs"</span>, <span class="code-str">"Tutorials"</span>,
+              <span class="code-str">"Everyday posts"</span>]
 
     <span class="code-kw">def</span> <span class="code-fn">solve</span>(self, problem):
         <span class="code-kw">return</span> <span class="code-str">f"Clean, scalable solution ✓"</span>
@@ -553,6 +559,11 @@
                     style="animation: float1 3s ease-in-out infinite;">
                     <div class="text-xs font-bold" style="font-family:'Syne',sans-serif; color:var(--violet);">AWS</div>
                     <div class="text-xs" style="color:var(--muted);">Lambda · S3 · EC2</div>
+                </div>
+                <div class="absolute -top-4 -left-4 bg-white border border-purple-100 rounded-2xl px-4 py-3 shadow-lg"
+                    style="animation: float2 3.2s ease-in-out infinite;">
+                    <div class="text-xs font-bold" style="font-family:'Syne',sans-serif; color:var(--violet);">✍️ Writer</div>
+                    <div class="text-xs" style="color:var(--muted);">Docs · Tutorials · Blog</div>
                 </div>
                 <div class="absolute -bottom-4 -left-4 bg-white border border-purple-100 rounded-2xl px-4 py-3 shadow-lg"
                     style="animation: float2 3.5s ease-in-out infinite;">
@@ -622,11 +633,11 @@
         <div class="max-w-6xl mx-auto px-5">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="fade-up">
-                    <div class="stat-num">5+</div>
+                    <div class="stat-num">9+</div>
                     <div class="text-sm mt-1" style="color:var(--muted);">Years Experience</div>
                 </div>
                 <div class="fade-up" style="transition-delay:0.1s">
-                    <div class="stat-num">15+</div>
+                    <div class="stat-num">40+</div>
                     <div class="text-sm mt-1" style="color:var(--muted);">Technologies</div>
                 </div>
                 <div class="fade-up" style="transition-delay:0.2s">
@@ -657,8 +668,8 @@
                         <div class="text-xs mb-1"
                             style="color:var(--muted); font-family:'Syne',sans-serif; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">
                             Currently</div>
-                        <div class="font-bold text-sm" style="color:var(--ink);">Learning Node.js &</div>
-                        <div class="font-bold text-sm" style="color:var(--ink);">DevOps automation</div>
+                        <div class="font-bold text-sm" style="color:var(--ink);">Learning AI coding</div>
+                        <div class="font-bold text-sm" style="color:var(--ink);">agents (Codex, Claude Code)</div>
                         <div class="mt-2 flex items-center gap-1.5">
                             <div class="availability-dot"></div>
                             <span class="text-xs" style="color:#22c55e; font-weight:600;">Active learner</span>
@@ -672,16 +683,17 @@
                     <h2 class="section-title text-4xl md:text-5xl mb-6" style="color:var(--ink);">Building with
                         intention,<br><span style="color:var(--violet);">one line at a time.</span></h2>
                     <div class="space-y-4 mb-8" style="color:var(--muted); line-height:1.8;">
-                        <p>I'm a hands-on software engineer with a love for building systems that are intuitive,
+                        <p>I am a hands-on software engineer with a love for building systems that are intuitive,
                             scalable, and maintainable. While I specialize in <strong style="color:var(--ink);">Python,
                                 Django, and backend engineering</strong>, I work comfortably across the stack — from
                             frontend interfaces to cloud deployment pipelines.</p>
-                        <p>What drives me is using tech to solve problems and improve lives. I've worked in <strong
+                        <p>What drives me is using tech to solve problems and improve lives. I have worked in <strong
                                 style="color:var(--ink);">collaborative teams</strong>, contributed to cross-functional
                             projects, and led efforts that required both architectural planning and low-level debugging.
                         </p>
-                        <p>Beyond coding, I love sharing knowledge — mentoring beginners or collaborating with peers —
-                            because I believe learning is better when shared. <em>Bonjour! J'apprend sur Duolingo tous
+                        <p>Beyond coding, I love sharing knowledge - writing, YouTube videos, mentoring beginners or collaborating with peers - 
+                            because I believe learning is better when shared. 
+                            <br><em>Bonjour! J'apprend sur Duolingo tous
                                 les jours 😄</em></p>
                     </div>
 
@@ -739,7 +751,6 @@
             <!-- Category cards -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
 
-                <!-- Backend -->
                 <div class="card p-6 fade-up">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
@@ -749,29 +760,17 @@
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill">Python</span>
                         <span class="skill-pill">Django</span>
-                        <span class="skill-pill">FastAPI</span>
-                        <span class="skill-pill">Rust</span>
+                        <span class="skill-pill">Django REST Framework</span>
                         <span class="skill-pill">REST APIs</span>
-                    </div>
-                    <div class="mt-4 space-y-2">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>Python/Django</span><span>95%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="95"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>FastAPI</span><span>80%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="80"></div>
-                            </div>
-                        </div>
+                        <span class="skill-pill">Celery</span>
+                        <span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">Rust (learning)</span>
+                        <span class="skill-pill">Redis</span>
+                        <span class="skill-pill">Microservices</span>
+                        <span class="skill-pill">PHP</span>
                     </div>
                 </div>
 
-                <!-- Frontend -->
                 <div class="card p-6 fade-up" style="transition-delay:0.05s">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
@@ -780,30 +779,17 @@
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill">React</span>
+                        <span class="skill-pill">TypeScript</span>
                         <span class="skill-pill">JavaScript</span>
                         <span class="skill-pill">HTML5</span>
                         <span class="skill-pill">CSS3</span>
-                    </div>
-                    <div class="mt-4 space-y-2">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>React</span><span>78%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="78"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>JavaScript</span><span>82%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="82"></div>
-                            </div>
-                        </div>
+                        <span class="skill-pill">Bootstrap</span>
+                        <span class="skill-pill">Jinja</span>
+                        <span class="skill-pill">WCAG</span>
                     </div>
                 </div>
 
-                <!-- Databases -->
-                <div class="card p-6 fade-up" style="transition-delay:0.1s">
+                <div class="card p-6 fade-up" style="transition-delay:0.10s">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
                             style="background:var(--violet-faint);">💾</div>
@@ -812,104 +798,120 @@
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill">PostgreSQL</span>
                         <span class="skill-pill">MySQL</span>
-                        <span class="skill-pill">DynamoDB</span>
+                        <span class="skill-pill">SQL</span>
+                        <span class="skill-pill">Schema Design</span>
                         <span class="skill-pill">MongoDB</span>
-                    </div>
-                    <div class="mt-4 space-y-2">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>PostgreSQL/MySQL</span><span>90%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>DynamoDB</span><span>75%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="75"></div>
-                            </div>
-                        </div>
+                        <span class="skill-pill">DynamoDB</span>
+                        <span class="skill-pill">Redis Caching</span>
                     </div>
                 </div>
 
-                <!-- Cloud -->
-                <div class="card p-6 fade-up" style="transition-delay:0.15s">
+                <div class="card p-6 fade-up">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
                             style="background:var(--violet-faint);">☁️</div>
-                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Cloud & Hosting
-                        </div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Cloud & Hosting</div>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill">AWS Lambda</span>
                         <span class="skill-pill">S3</span>
                         <span class="skill-pill">EC2</span>
+                        <span class="skill-pill">API Gateway</span>
+                        <span class="skill-pill">Cognito</span>
+                        <span class="skill-pill">CloudFront</span>
+                        <span class="skill-pill">CloudFormation</span>
+                        <span class="skill-pill">Rekognition</span>
+                        <span class="skill-pill">SES</span>
                         <span class="skill-pill">Nginx</span>
                         <span class="skill-pill">Apache</span>
-                        <span class="skill-pill">SES</span>
-                    </div>
-                    <div class="mt-4 space-y-2">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>AWS</span><span>85%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="85"></div>
-                            </div>
-                        </div>
+                        <span class="skill-pill">Linode</span>
+                        <span class="skill-pill">DigitalOcean</span>
                     </div>
                 </div>
 
-                <!-- DevOps -->
-                <div class="card p-6 fade-up" style="transition-delay:0.2s">
+                <div class="card p-6 fade-up" style="transition-delay:0.05s">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
                             style="background:var(--violet-faint);">⚙️</div>
-                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">DevOps</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">DevOps & Monitoring</div>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill">Docker</span>
-                        <span class="skill-pill">Kubernetes</span>
                         <span class="skill-pill">GitHub Actions</span>
                         <span class="skill-pill">CI/CD</span>
+                        <span class="skill-pill">Kubernetes (coursework)</span>
+                        <span class="skill-pill">Linux</span>
+                        <span class="skill-pill">Ubuntu</span>
                         <span class="skill-pill">Shell</span>
-                    </div>
-                    <div class="mt-4 space-y-2">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>Docker/K8s</span><span>80%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="80"></div>
-                            </div>
-                        </div>
+                        <span class="skill-pill">Grafana</span>
+                        <span class="skill-pill">Prometheus</span>
+                        <span class="skill-pill">CloudWatch</span>
                     </div>
                 </div>
 
-                <!-- Testing & Data -->
-                <div class="card p-6 fade-up" style="transition-delay:0.25s">
+                <div class="card p-6 fade-up" style="transition-delay:0.10s">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
                             style="background:var(--violet-faint);">🧪</div>
-                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Testing & Data
-                        </div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Testing & Data</div>
                     </div>
                     <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Django Testing</span>
                         <span class="skill-pill">Pytest</span>
                         <span class="skill-pill">Selenium</span>
-                        <span class="skill-pill">Playwright</span>
                         <span class="skill-pill">Pandas</span>
                         <span class="skill-pill">NumPy</span>
-                    </div>
-                    <div class="mt-4 space-y-2">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1" style="color:var(--muted);">
-                                <span>Testing</span><span>88%</span></div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="88"></div>
-                            </div>
-                        </div>
+                        <span class="skill-pill">Data Pipelines</span>
+                        <span class="skill-pill">Audit Logging</span>
                     </div>
                 </div>
+
+                <div class="card p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">🤖</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">AI & LLMs</div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">OpenAI API</span>
+                        <span class="skill-pill">Anthropic API</span>
+                        <span class="skill-pill">RAG</span>
+                        <span class="skill-pill">Vector Databases</span>
+                        <span class="skill-pill">Prompt Engineering</span>
+                        <span class="skill-pill">Codex</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 fade-up" style="transition-delay:0.05s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">💳</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Payments & Security</div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Stripe</span>
+                        <span class="skill-pill">Paystack</span>
+                        <span class="skill-pill">Webhooks</span>
+                        <span class="skill-pill">OAuth 2.0</span>
+                        <span class="skill-pill">JWT</span>
+                        <span class="skill-pill">Role-Based Access Control</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 fade-up" style="transition-delay:0.10s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                            style="background:var(--violet-faint);">📡</div>
+                        <div class="font-bold" style="font-family:'Syne',sans-serif; color:var(--ink);">Real-time & Mobile</div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">WebRTC</span>
+                        <span class="skill-pill">Red5Pro</span>
+                        <span class="skill-pill">React Native</span>
+                        <span class="skill-pill">Live Streaming</span>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Collaboration highlights -->
@@ -964,6 +966,53 @@
     </section>
 
 
+    <!-- ═══════════════════════════════════════════ PROJECTS ════════════════════════════════════════════ -->
+    <section id="projects" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="text-center mb-16 fade-up">
+                <p class="section-eyebrow mb-3">Projects</p>
+                <h2 class="section-title text-4xl md:text-5xl" style="color:var(--ink);">Things I have built</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <article class="card p-6 fade-up flex flex-col">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">AI-assisted build</span>
+                        <span class="text-xs" style="color:var(--muted);">Oct 2026</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2" style="font-family:'Syne',sans-serif; color:var(--ink);">Swipe-IQ</h3>
+                    <p class="text-sm mb-4 flex-1" style="color:var(--muted); line-height:1.7;">A fun mobile feed that wraps exam lessons in funny posts, memes and videos. Features a Django admin where staff can request AI text drafts, a human review step before publishing, private likes, optional quiz "dares" and an aggregate pilot report. Built with an AI coding agent (Codex) guided by an AGENTS.md and written milestones.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="skill-pill">Django</span>
+                        <span class="skill-pill">Django REST Framework</span>
+                        <span class="skill-pill">React Native</span>
+                        <span class="skill-pill">OpenAI API</span>
+                        <span class="skill-pill">Codex</span>
+                    </div>
+                    <a href="https://github.com/toweralaka/swipe-iq" target="_blank" class="text-sm font-bold"
+                        style="color:var(--violet); font-family:'Syne',sans-serif;">View on GitHub →</a>
+                </article>
+                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.1s">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">Serverless</span>
+                        <span class="text-xs" style="color:var(--muted);">May 2026</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2" style="font-family:'Syne',sans-serif; color:var(--ink);">Serverless Image Gallery</h3>
+                    <p class="text-sm mb-4 flex-1" style="color:var(--muted); line-height:1.7;">An authenticated image gallery: Cognito handles sign-up and login, images are resized on upload, and Python Lambdas rotate, blur, sepia-filter and compress them. Frontend is plain HTML, CSS and JavaScript.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">AWS Lambda</span>
+                        <span class="skill-pill">DynamoDB</span>
+                        <span class="skill-pill">S3</span>
+                        <span class="skill-pill">CloudFront</span>
+                        <span class="skill-pill">CloudFormation</span>
+                    </div>
+                    <a href="https://d21ooaci4j2i9j.cloudfront.net/" target="_blank" class="text-sm font-bold"
+                        style="color:var(--violet); font-family:'Syne',sans-serif;">Try →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
     <!-- ═══════════════════════════════════════════ BLOG ════════════════════════════════════════════ -->
     <section id="blog" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-5">
@@ -978,98 +1027,70 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <!-- Post 1 -->
                 <article class="card p-6 fade-up flex flex-col">
                     <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
                         style="background:linear-gradient(135deg,#d4c2f5,#6f42c1); height:160px;">🐍</div>
                     <div class="flex items-center gap-2 mb-3">
                         <span class="blog-tag">Python</span>
-                        <span class="text-xs" style="color:var(--muted);">5 min read</span>
+                        <span class="text-xs" style="color:var(--muted);">on Codementor</span>
                     </div>
                     <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
-                        Django REST Framework: Best Practices for Scalable APIs</h3>
-                    <p class="text-sm mb-4" style="color:var(--muted);">How I structure DRF projects for long-term
-                        maintainability — serializers, viewsets, permissions, and performance tips from real production
-                        work.</p>
+                        HackerRank Hourglass Challenge Using Python</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">A Python walkthrough of the HackerRank hourglass challenge.</p>
                     <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs" style="color:var(--muted);">Jan 2025</span>
-                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
+                        <span class="text-xs" style="color:var(--muted);">Jun 2021</span>
+                        <a href="https://www.codementor.io/@tower/hackerrank-hourglass-challenge-using-python-1ix7ftgbvu" target="_blank" class="text-sm font-bold"
                             style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
                     </div>
                 </article>
 
-                <!-- Post 2 -->
                 <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.1s">
-                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
-                        style="background:linear-gradient(135deg,#c2f0d4,#22c55e); height:160px;">🐳</div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="blog-tag">Docker</span>
-                        <span class="text-xs" style="color:var(--muted);">7 min read</span>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
-                        Dockerizing Django: From Dev to Production in 30 Minutes</h3>
-                    <p class="text-sm mb-4" style="color:var(--muted);">A practical walkthrough of containerizing a
-                        Django app with Docker Compose, including Nginx, Gunicorn, and PostgreSQL.</p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs" style="color:var(--muted);">Feb 2025</span>
-                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
-                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
-                    </div>
-                </article>
-
-                <!-- Post 3 -->
-                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.2s">
-                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
-                        style="background:linear-gradient(135deg,#f5d4c2,#f59e0b); height:160px;">☁️</div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="blog-tag">AWS</span>
-                        <span class="text-xs" style="color:var(--muted);">8 min read</span>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
-                        Serverless with AWS Lambda + API Gateway + DynamoDB</h3>
-                    <p class="text-sm mb-4" style="color:var(--muted);">Build and deploy a serverless CRUD API on AWS
-                        without managing servers — with Python, Lambda, and DynamoDB.</p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs" style="color:var(--muted);">Mar 2025</span>
-                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
-                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
-                    </div>
-                </article>
-
-                <!-- Post 4 -->
-                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.05s">
-                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
-                        style="background:linear-gradient(135deg,#c2d4f5,#3b82f6); height:160px;">⚛️</div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="blog-tag">React</span>
-                        <span class="text-xs" style="color:var(--muted);">6 min read</span>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
-                        Connecting React to a Django Backend: The Right Way</h3>
-                    <p class="text-sm mb-4" style="color:var(--muted);">CORS setup, JWT auth, Axios interceptors, and
-                        state management patterns for a Django + React stack.</p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs" style="color:var(--muted);">Apr 2025</span>
-                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
-                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
-                    </div>
-                </article>
-
-                <!-- Post 5 -->
-                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.15s">
                     <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
                         style="background:linear-gradient(135deg,#f5c2e7,#ec4899); height:160px;">🧪</div>
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="blog-tag">Testing</span>
-                        <span class="text-xs" style="color:var(--muted);">5 min read</span>
+                        <span class="blog-tag">Django</span>
+                        <span class="text-xs" style="color:var(--muted);">on Codementor</span>
                     </div>
                     <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
-                        Writing Tests That Actually Matter with Pytest & Django</h3>
-                    <p class="text-sm mb-4" style="color:var(--muted);">Move beyond just coverage — write tests that
-                        catch real bugs, document behaviour, and don't slow you down.</p>
+                        Test Django Apps Quickly</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">A practical guide to testing your Django apps quickly.</p>
                     <div class="flex items-center justify-between mt-auto">
-                        <span class="text-xs" style="color:var(--muted);">Apr 2025</span>
-                        <a href="https://youtube.com/@itsdeardev" target="_blank" class="text-sm font-bold"
+                        <span class="text-xs" style="color:var(--muted);">Apr 2021</span>
+                        <a href="https://www.codementor.io/@tower/test-django-apps-quickly-1h5akbw0i7" target="_blank" class="text-sm font-bold"
+                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.2s">
+                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
+                        style="background:linear-gradient(135deg,#c2f0d4,#22c55e); height:160px;">🧰</div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">Tools</span>
+                        <span class="text-xs" style="color:var(--muted);">on Codementor</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                        My Software Developer Tools</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">The tools I use day to day as a software developer.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs" style="color:var(--muted);">May 2021</span>
+                        <a href="https://www.codementor.io/@tower/my-software-developer-tools-1hm9smq5z9" target="_blank" class="text-sm font-bold"
+                            style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card p-6 fade-up flex flex-col" style="transition-delay:0.3s">
+                    <div class="rounded-xl mb-5 flex items-center justify-center text-5xl"
+                        style="background:linear-gradient(135deg,#c2d4f5,#3b82f6); height:160px;">🚀</div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="blog-tag">Career</span>
+                        <span class="text-xs" style="color:var(--muted);">on Codementor</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 flex-1" style="font-family:'Syne',sans-serif; color:var(--ink);">
+                        Start Your Developer Journey: Build Your Portfolio & Show Off</h3>
+                    <p class="text-sm mb-4" style="color:var(--muted);">A beginner-friendly guide to building a portfolio that shows off your work.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs" style="color:var(--muted);">Sept 2023</span>
+                        <a href="https://www.codementor.io/@tower/start-your-developer-journey-building-your-portfolio-show-off-27wz7kcbqq" target="_blank" class="text-sm font-bold"
                             style="color:var(--violet); font-family:'Syne',sans-serif;">Read →</a>
                     </div>
                 </article>
@@ -1080,8 +1101,8 @@
                     <div class="text-5xl mb-4">🎬</div>
                     <h3 class="font-bold text-xl mb-3" style="font-family:'Syne',sans-serif; color:white;">Watch
                         tutorials on YouTube</h3>
-                    <p class="text-sm mb-6" style="color:rgba(255,255,255,0.75);">I share coding walkthroughs, career
-                        tips, and tech tutorials for developers.</p>
+                    <p class="text-sm mb-6" style="color:rgba(255,255,255,0.75);">I share beginner-friendly coding walkthroughs
+                        and tech tutorials for developers.</p>
                     <a href="https://youtube.com/@itsdeardev" target="_blank"
                         class="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm"
                         style="background:white; color:var(--violet); font-family:'Syne',sans-serif;">Subscribe →</a>
@@ -1097,10 +1118,10 @@
         <div class="max-w-5xl mx-auto px-5">
             <div class="text-center mb-16 fade-up">
                 <p class="section-eyebrow mb-3">Contact</p>
-                <h2 class="section-title text-4xl md:text-5xl" style="color:var(--ink);">Let's build something<br><span
+                <h2 class="section-title text-4xl md:text-5xl" style="color:var(--ink);">Let us build something<br><span
                         style="color:var(--violet);">meaningful together.</span></h2>
-                <p class="mt-4 text-lg" style="color:var(--muted);">Whether it's a job opportunity, collaboration, or
-                    just a chat — I'm always open.</p>
+                <p class="mt-4 text-lg" style="color:var(--muted);">Whether it is a job opportunity, collaboration, or
+                    just a chat — I am always open.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
@@ -1229,7 +1250,7 @@
                             </button>
                             <div id="form-success" class="hidden text-center py-3 rounded-xl text-sm font-bold"
                                 style="background:#d1fae5; color:#059669;">
-                                ✓ Message sent! I'll get back to you soon.
+                                ✓ Message sent! I will get back to you soon.
                             </div>
                         </div>
                     </div>
